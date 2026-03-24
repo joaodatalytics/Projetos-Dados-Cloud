@@ -49,55 +49,59 @@ Construir do zero a infraestrutura de rede base para um ambiente corporativo (*S
 │  └─────────────────────────────────────────────────────┘  │
 └───────────────────────────────────────────────────────────┘
 ```
+---
 
-📋 Etapas de implementação
-Criação da Joao VPC com o bloco CIDR 10.0.0.0/16.
+## 📋 Etapas de implementação
 
-Segmentação lógica criando uma Sub-rede Pública e uma Sub-rede Privada.
+1. Criação da **Joao VPC** com o bloco CIDR `10.0.0.0/16`.
+2. Segmentação lógica criando uma Sub-rede Pública e uma Sub-rede Privada.
+3. Criação e anexo do **Internet Gateway (IGW)** à VPC.
+4. Configuração da Tabela de Rotas Pública (`Joao-RTPublic`), direcionando o tráfego externo para o IGW.
+5. Provisionamento de um **NAT Gateway** na sub-rede pública para gerenciar a saída segura de dados.
+6. Lançamento do servidor **Bastion Host** (Amazon Linux) na sub-rede pública para acesso SSH.
+7. Teste de conectividade e validação do fluxo de dados da instância privada para a internet.
 
-Criação e anexo do Internet Gateway (IGW) à VPC.
+---
 
-Configuração da Tabela de Rotas Pública (Joao-RTPublic), direcionando o tráfego externo para o IGW.
+## 🔍 Diagnóstico e Troubleshooting
 
-Provisionamento de um NAT Gateway na sub-rede pública para gerenciar a saída segura de dados.
-
-Lançamento do servidor Bastion Host (Amazon Linux) na sub-rede pública para acesso SSH.
-
-Teste de conectividade e validação do fluxo de dados da instância privada para a internet.
-
-🔍 Diagnóstico e Troubleshooting
-Durante a etapa de validação, ao acessar a instância privada e realizar um teste de conectividade externa (ping amazon.com), deparei-me com uma falha crítica de roteamento: 100% packet loss.
+Durante a etapa de validação, ao acessar a instância privada e realizar um teste de conectividade externa (`ping amazon.com`), deparei-me com uma falha crítica de roteamento: **100% packet loss**.
 
 Em vez de recriar a infraestrutura, iniciei a investigação da arquitetura:
+1. Validei se a instância privada estava ligada e o Security Group permitia tráfego ICMP. (Status: OK)
+2. Validei se o NAT Gateway estava ativo na rede pública. (Status: OK)
+3. **Causa Raiz:** Ao auditar o painel de Tabelas de Rotas, identifiquei que a tabela `Joao-RTPrivate` não possuía uma **associação explícita** com a sub-rede privada, deixando o tráfego sem um caminho lógico para o NAT Gateway.
 
-Validei se a instância privada estava ligada e o Security Group permitia tráfego ICMP. (Status: OK)
+**Resolução:** Ajustei a rota, associando a sub-rede privada diretamente à `Joao-RTPrivate`. O teste subsequente (`ping google.com`) retornou **0% packet loss**, comprovando o sucesso da configuração.
 
-Validei se o NAT Gateway estava ativo na rede pública. (Status: OK)
+---
 
-Causa Raiz: Ao auditar o painel de Tabelas de Rotas, identifiquei que a tabela Joao-RTPrivate não possuía uma associação explícita com a sub-rede privada, deixando o tráfego sem um caminho lógico para o NAT Gateway.
+## 📸 Evidências
 
-Resolução: Ajustei a rota, associando a sub-rede privada diretamente à Joao-RTPrivate. O teste subsequente (ping google.com) retornou 0% packet loss, comprovando o sucesso da configuração.
+### 1. A Base: Criação da Amazon VPC do Zero
+*(Substitua esta linha pelo link da imagem da Joao VPC)*
 
-📸 Evidências
-1. A Base: Criação da Amazon VPC do Zero
-(Substitua esta linha pela imagem da Joao VPC - Amazon VPC 1.jpeg)
+### 2. O Diagnóstico: Falha na Tabela de Rotas
+*(Substitua esta linha pelo link da imagem da Tabela de Rotas)*
 
-2. O Diagnóstico: Falha na Tabela de Rotas
-(Substitua esta linha pela imagem da Tabela de Rotas - Amazon VPC 2.jpeg)
+### 3. Troubleshooting: Conexão Estabelecida
+*(Substitua esta linha pelo link da imagem do Terminal com o Ping)*
 
-3. Troubleshooting: Conexão Estabelecida
-(Substitua esta linha pela imagem do Terminal com o Ping - Amazon VPC 3.jpeg)
+---
 
-💡 Aprendizados e Impacto de Negócios
-✅ Segurança em Dados: Entendimento prático de por que Data Lakes e bancos de dados devem sempre residir em sub-redes privadas.
+## 💡 Aprendizados e Impacto de Negócios
 
-✅ Troubleshooting Lógico: Como diagnosticar problemas de conectividade (packet loss) analisando tabelas de rotas e fluxo de tráfego, evitando o desperdício de tempo "apagando e refazendo" recursos.
+- ✅ **Segurança em Dados:** Entendimento prático de por que Data Lakes e bancos de dados devem sempre residir em sub-redes privadas.
+- ✅ **Troubleshooting Lógico:** Como diagnosticar problemas de conectividade (*packet loss*) analisando tabelas de rotas e fluxo de tráfego, evitando o desperdício de tempo "apagando e refazendo" recursos.
+- ✅ **Acesso Blindado:** Implementação do conceito de *Jump Box* (Bastion Host) e NAT Gateway para proteger a infraestrutura contra ataques externos.
 
-✅ Acesso Blindado: Implementação do conceito de Jump Box (Bastion Host) e NAT Gateway para proteger a infraestrutura contra ataques externos.
+---
 
-🔗 Referências
-Documentação Amazon VPC
+## 🔗 Referências
 
-Padrões de Arquitetura AWS para Bastion Hosts
+- [Documentação Amazon VPC](https://docs.aws.amazon.com/vpc/)
+- [Padrões de Arquitetura AWS para Bastion Hosts](https://aws.amazon.com/quickstart/architecture/linux-bastion/)
 
-Projeto realizado durante o programa AWS re/Start — Escola da Nuvem (Março de 2026)
+---
+
+*Projeto realizado durante o programa AWS re/Start — Escola da Nuvem (Março de 2026)*
