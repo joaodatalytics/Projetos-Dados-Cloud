@@ -48,6 +48,7 @@ Construir do zero a infraestrutura de rede base para um ambiente corporativo (*S
 │  │   [ Instância Privada / Banco de Dados ]            │  │
 │  └─────────────────────────────────────────────────────┘  │
 └───────────────────────────────────────────────────────────┘
+---
 
 📋 Etapas de implementação
 Criação da Joao VPC com o bloco CIDR 10.0.0.0/16.
