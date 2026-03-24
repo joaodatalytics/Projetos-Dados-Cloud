@@ -80,13 +80,13 @@ Em vez de recriar a infraestrutura, iniciei a investigação da arquitetura:
 ## 📸 Evidências
 
 ### 1. A Base: Criação da Amazon VPC do Zero
-*(Substitua esta linha pelo link da imagem da Joao VPC)*
+![Criação da VPC João Gabriel](Amazon%20VPC%201.jpeg)
 
 ### 2. O Diagnóstico: Falha na Tabela de Rotas
-*(Substitua esta linha pelo link da imagem da Tabela de Rotas)*
+![Diagnóstico de Rotas Joao-RTPrivate](Amazon%20VPC%202.jpeg)
 
 ### 3. Troubleshooting: Conexão Estabelecida
-*(Substitua esta linha pelo link da imagem do Terminal com o Ping)*
+![Terminal com Ping com Sucesso](Amazon%20VPC%203.jpeg)
 
 ---
 
