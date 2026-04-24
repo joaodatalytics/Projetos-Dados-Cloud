@@ -35,5 +35,31 @@ A infraestrutura foi desenhada para separar o processamento, o armazenamento e a
    aws s3 cp index.html s3://portfolio-joao-gabriel /
    aws s3 cp perfil.jpg s3://portfolio-joao-gabriel /
 6. Imagens utilizadas para melhor compreensão: 
+### 📸 Evidências da Execução
+
+<details>
+<summary><b>Clique aqui para expandir e ver as capturas de tela do projeto</b></summary>
+<br>
+
+**1. Criação e Revisão da Pilha (CloudFormation)**<br>
+<img src="evidencias/Criação da Pilha - 01.jpeg" width="700"><br>
+<img src="evidencias/Revisão da Pilha - 03.jpeg" width="700"><br>
+
+**2. Provisionamento Concluído**<br>
+<img src="evidencias/Pilha Criada - 04.jpeg" width="700"><br>
+
+**3. Recursos de Computação e Redes (EC2 e VPC)**<br>
+<img src="evidencias/EC2 Criada - 05.jpeg" width="700"><br>
+<img src="evidencias/VPC Criada - 07.jpeg" width="700"><br>
+
+**4. Banco de Dados e Monitoramento (RDS e CloudWatch)**<br>
+<img src="evidencias/RDS Criado - 09.jpeg" width="700"><br>
+<img src="evidencias/CloudWatch Criada - 08.jpeg" width="700"><br>
+
+**5. Testes Finais (Servidor Web e Site Estático no S3)**<br>
+<img src="evidencias/Server Web Teste - 06.jpeg" width="700"><br>
+<img src="evidencias/Site Estático - 10.jpeg" width="700"><br>
+
+</details>
 
 Desenvolvido por João Gabriel - Conecte-se comigo no https://www.linkedin.com/in/joaognscmnt-dados/.
