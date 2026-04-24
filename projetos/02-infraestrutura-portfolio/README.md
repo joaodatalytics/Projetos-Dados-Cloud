@@ -34,7 +34,7 @@ A infraestrutura foi desenhada para separar o processamento, o armazenamento e a
    ```bash
    aws s3 cp index.html s3://portfolio-joao-gabriel /
    aws s3 cp perfil.jpg s3://portfolio-joao-gabriel /
-6. Imagens utilizadas para melhor compreensão: 
+
 ### 📸 Evidências da Execução
 
 <details>
