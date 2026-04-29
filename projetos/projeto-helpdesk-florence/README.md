@@ -18,3 +18,5 @@ A infraestrutura foi provisionada utilizando **Infrastructure as Code (IaC)** co
 
 ## 🚀 Próximos Passos (Data Analytics)
 Com os dados sendo ingeridos corretamente no banco MySQL relacional, a próxima fase do projeto consiste em plugar uma ferramenta de visualização (como PowerBI, Metabase ou Amazon QuickSight) diretamente no RDS para construir dashboards analíticos em tempo real.
+
+Desenvolvido por João Gabriel - Conecte-se comigo no https://www.linkedin.com/in/joaognscmnt-dados/.
