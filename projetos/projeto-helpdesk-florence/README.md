@@ -19,4 +19,28 @@ A infraestrutura foi provisionada utilizando **Infrastructure as Code (IaC)** co
 ## 🚀 Próximos Passos (Data Analytics)
 Com os dados sendo ingeridos corretamente no banco MySQL relacional, a próxima fase do projeto consiste em plugar uma ferramenta de visualização (como PowerBI, Metabase ou Amazon QuickSight) diretamente no RDS para construir dashboards analíticos em tempo real.
 
+## 📸 Evidências de Execução e Validação
+
+Para demonstrar o funcionamento do pipeline, as etapas foram documentadas abaixo:
+
+### 1. Infraestrutura e Banco de Dados
+A infraestrutura foi provisionada via CloudFormation, estabelecendo a conexão segura entre o servidor e o banco de dados relacional.
+<p align="center">
+  <img src="./evidencia/01-infraestrutura-aws.png" width="45%" />
+  <img src="./evidencia/02-banco-de-dados-rds.png" width="45%" />
+</p>
+
+### 2. Backend e Integração (API Python)
+A API desenvolvida em Flask foi hospedada na EC2, configurada para "escutar" as requisições do portal e realizar o `INSERT` no MySQL.
+<p align="center">
+  <img src="./evidencia/03-api-python-ativa.png" width="90%" />
+</p>
+
+### 3. Teste de Ponta a Ponta (Fluxo do Dado)
+Validação do envio de um chamado real através do portal, com a confirmação de recebimento no terminal e persistência no banco.
+<p align="center">
+  <img src="./evidencia/04-portal-web-sucesso.png" width="45%" />
+  <img src="./evidencia/05-log-recebimento-dados.png" width="45%" />
+</p>
+
 Desenvolvido por João Gabriel - Conecte-se comigo no https://www.linkedin.com/in/joaognscmnt-dados/.
