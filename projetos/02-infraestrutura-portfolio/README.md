@@ -1,65 +1,99 @@
-# ☁️ AWS Infrastructure as Code (IaC) - Data Analytics Environment
+# ☁️ Projeto 02 — Infrastructure as Code (IaC) com AWS CloudFormation
 
-Este projeto demonstra o provisionamento 100% automatizado de uma infraestrutura em nuvem segura, escalável e otimizada para custos (Free Tier) utilizando **AWS CloudFormation**. 
+![CloudFormation](https://img.shields.io/badge/AWS_CloudFormation-FF4F8B?style=for-the-badge&logo=amazon-aws&logoColor=white)
+![RDS](https://img.shields.io/badge/Amazon_RDS-527FFF?style=for-the-badge&logo=amazon-rds&logoColor=white)
+![S3](https://img.shields.io/badge/Amazon_S3-569A31?style=for-the-badge&logo=amazon-s3&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Concluído-1A9C3E?style=for-the-badge)
 
-Desenvolvido como parte do meu avanço prático no programa **AWS re/Start (Escola da Nuvem)**, com foco em sustentar pipelines de **Cloud Data Analytics**.
+---
 
-## 🏗️ Arquitetura do Projeto
+## 🎯 Objetivo
 
-A infraestrutura foi desenhada para separar o processamento, o armazenamento e a interface web, aplicando as melhores práticas do mercado:
+Provisionar de forma 100% automatizada uma infraestrutura em nuvem segura, escalável e otimizada para custos (Free Tier) utilizando **AWS CloudFormation**. O projeto foi desenhado separando o processamento, o armazenamento e a interface web, com o objetivo principal de criar um ambiente robusto capaz de sustentar pipelines de **Cloud Data Analytics**.
 
-* **Camada Global (S3):** Bucket público hospedando um portfólio serverless em HTML/CSS.
-* **Camada de Rede (VPC):** Virtual Private Cloud customizada com Internet Gateway e tabelas de roteamento.
-* **Camada de Computação (EC2):** Servidor Linux na Subnet Pública para processamento, buscando a AMI (Amazon Linux 2) mais recente dinamicamente via Systems Manager (Parameter Store).
-* **Camada de Dados (RDS MySQL):** Banco de dados relacional isolado em Subnets Privadas (Multi-AZ Ready) com acesso restrito via Security Groups.
-* **Observabilidade:** Alarmes do AWS CloudWatch configurados para monitoramento de CPU.
+---
 
-## 🛠️ Tecnologias Utilizadas
-* **AWS CloudFormation** (YAML)
-* **Amazon S3, EC2, RDS, VPC, CloudWatch**
-* **HTML5 / CSS3** (Frontend do Portfólio)
+## 🛠️ Serviços utilizados
 
-## 💡 Diferenciais Técnicos Aplicados
-1.  **Segurança em Camadas:** O banco de dados (RDS) não possui IP público e só aceita conexões vindas do Security Group da instância EC2.
-2.  **Previsibilidade com Change Sets:** Evolução da arquitetura validada preventivamente antes do deploy.
-3.  **Custo Zero (FinOps):** Recursos rigorosamente parametrizados dentro dos limites do AWS Free Tier (`t2.micro`, discos de 8GB a 20GB, Single-AZ).
+| Serviço | Função |
+|---|---|
+| **AWS CloudFormation** | Automação da infraestrutura via código (YAML) e provisionamento de recursos. |
+| **Amazon VPC** | Virtual Private Cloud customizada com Internet Gateway e tabelas de roteamento. |
+| **Amazon RDS (MySQL)** | Banco de dados relacional isolado em Subnets Privadas (Multi-AZ Ready). |
+| **Amazon EC2** | Servidor Linux na Subnet Pública para processamento web (AMI dinâmica via SSM). |
+| **Amazon S3** | Bucket público hospedando um portfólio serverless em arquivos estáticos (HTML/CSS). |
+| **Amazon CloudWatch** | Configuração de alarmes de monitoramento para a CPU da instância. |
 
-## 🚀 Como fazer o Deploy
+---
 
-1. Faça o clone deste repositório.
-2. Acesse o console da AWS > **CloudFormation** > **Create Stack**.
-3. Faça o upload do arquivo `template-infra.yaml`.
-4. Preencha os parâmetros solicitados (Nome do KeyPair e Nome único do Bucket).
-5. Após o status `CREATE_COMPLETE`, faça o upload do `index.html` e `perfil.jpg` para o bucket S3 criado usando o AWS CLI:
-   ```bash
-   aws s3 cp index.html s3://portfolio-joao-gabriel /
-   aws s3 cp perfil.jpg s3://portfolio-joao-gabriel /
+## 🏗️ Arquitetura da solução
 
-### 📸 Evidências da Execução
+```text
+       Internet
+          │
+          ▼
+ [ Internet Gateway ]
+          │
+ ┌────────▼─────────────────────────────────────────────────┐
+ │                  VPC Customizada                         │
+ │                                                          │
+ │  ┌────────────────────────────────────────────────────┐  │
+ │  │ Sub-rede Pública                                   │  │
+ │  │                                                    │  │
+ │  │  [ Servidor EC2 (Web) ] ◄──────(Alarmes)──────[ CW ]  │
+ │  └─────────────┬──────────────────────────────────────┘  │
+ │                │ (Acesso restrito via Security Group)    │
+ │  ┌─────────────▼──────────────────────────────────────┐  │
+ │  │ Sub-redes Privadas (Multi-AZ Ready)                │  │
+ │  │                                                    │  │
+ │  │  [ Amazon RDS MySQL (Banco de Dados) ]             │  │
+ │  └────────────────────────────────────────────────────┘  │
+ └──────────────────────────────────────────────────────────┘
 
-<details>
-<summary><b>Clique aqui para expandir e ver as capturas de tela do projeto</b></summary>
-<br>
+ ────────────────────────────────────────────────────────────
+  [ Amazon S3 ] ──► Hospedagem de Site Estático (Portfólio)
 
-**1. Criação e Revisão da Pilha (CloudFormation)**<br>
-<img src="evidencias/Criação da Pilha - 01.jpeg" width="700"><br>
-<img src="evidencias/Revisão da Pilha - 03.jpeg" width="700"><br>
+  📋 Etapas de implementação (Deploy)
+Faça o clone deste repositório para a sua máquina local.
 
-**2. Provisionamento Concluído**<br>
-<img src="evidencias/Pilha Criada - 04.jpeg" width="700"><br>
+Acesse o console da AWS > CloudFormation > Create Stack.
 
-**3. Recursos de Computação e Redes (EC2 e VPC)**<br>
-<img src="evidencias/EC2 Criada - 05.jpeg" width="700"><br>
-<img src="evidencias/VPC Criada - 07.jpeg" width="700"><br>
+Faça o upload do arquivo de template template-infra.yaml.
 
-**4. Banco de Dados e Monitoramento (RDS e CloudWatch)**<br>
-<img src="evidencias/RDS Criado - 09.jpeg" width="700"><br>
-<img src="evidencias/CloudWatch Criada - 08.jpeg" width="700"><br>
+Preencha os parâmetros dinâmicos solicitados pelo código (Nome do KeyPair e Nome único do Bucket S3).
 
-**5. Testes Finais (Servidor Web e Site Estático no S3)**<br>
-<img src="evidencias/Server Web Teste - 06.jpeg" width="700"><br>
-<img src="evidencias/Site Estático - 10.jpeg" width="700"><br>
+Após o status atingir CREATE_COMPLETE, faça o upload do site estático (index.html e perfil.jpg) para o bucket S3 recém-criado via AWS CLI:
 
-</details>
+aws s3 cp index.html s3://portfolio-joao-gabriel/
+aws s3 cp perfil.jpg s3://portfolio-joao-gabriel/
 
-Desenvolvido por João Gabriel - Conecte-se comigo no https://www.linkedin.com/in/joaognscmnt-dados/.
+💡 Diferenciais Técnicos Aplicados
+Ao invés de apenas criar os recursos, apliquei práticas avançadas de engenharia e governança de nuvem:
+
+Segurança em Camadas (Security by Design): O banco de dados (RDS) não possui IP público. Ele está blindado e programado para aceitar apenas conexões originadas do Security Group da instância EC2.
+
+Previsibilidade com Change Sets: Utilização de Change Sets para validar preventivamente como a arquitetura irá evoluir antes de aplicar as mudanças no ambiente de produção.
+
+Custo Zero (FinOps): Todo o código YAML foi rigorosamente parametrizado para manter os recursos dentro dos limites do AWS Free Tier (instância t2.micro, discos entre 8GB e 20GB, Single-AZ).
+
+📸 Evidências
+1. Automação: Criação e Revisão da Pilha
+2. Infraestrutura Lançada com Sucesso
+3. Computação e Rede Provisionadas (EC2 e VPC)
+4. Camada de Dados e Monitoramento (RDS e CloudWatch)
+5. Entrega Final (Servidor Web e Bucket S3)
+🧠 Aprendizados e Impacto de Negócios
+✅ Agilidade Operacional: Redução do tempo de deploy de horas de configuração manual para apenas alguns minutos executando um template, mitigando o erro humano.
+
+✅ Padronização: Garantia de que os ambientes de Desenvolvimento, Homologação e Produção possam ser idênticos.
+
+✅ Integração de Dados: Preparação de um terreno sólido e seguro para futuras ingestões de dados, pipelines e queries analíticas estruturadas.
+
+🔗 Referências e Contato
+Documentação AWS CloudFormation
+
+Autor: João Gabriel
+
+LinkedIn: Conecte-se comigo
+
+Projeto desenvolvido e aprimorado durante o programa AWS re/Start — Escola da Nuvem (Março de 2026)
