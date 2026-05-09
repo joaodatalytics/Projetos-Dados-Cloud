@@ -16,7 +16,7 @@ salvo indicação específica em contrário.
 | # | Projeto | Serviços | Status | Origem |
 |---|---|---|---|---|
 | 01 | [Arquitetura de Rede Segura e Troubleshooting (Amazon VPC)](./01-projeto-arquitetura-vpc/README.md) | VPC · Subnets Privadas · NAT Gateway · Bastion Host | ✅ Concluído | Escola da Nuvem |
-| 02 | [Infrastructure as Code (IaC) com AWS CloudFormation](./02-projeto-iac-cloudformation/README.md) | CloudFormation · EC2 · RDS · S3 · VPC | ✅ Concluído | Escola da Nuvem |
+| 02 | [Infrastructure as Code (IaC) com AWS CloudFormation](./02-projeto-iac-cloudformation/README.md) | CloudFormation · EC2 · RDS · S3 · VPC | ✅ Concluído | 🚀 Iniciativa própria |
 | 03 | [Data Pipeline & Cloud Infrastructure: Helpdesk Clínica Florence](./03-projeto-helpdesk-florence/README.md) | Python · Flask · EC2 · RDS · MySQL · S3 | ✅ Concluído | 🚀 Iniciativa própria |
 
 > Novos projetos e dashboards serão adicionados conforme o avanço nos estudos.
