@@ -52,6 +52,7 @@ Provisionar de forma 100% automatizada uma infraestrutura em nuvem segura, escal
 
  ────────────────────────────────────────────────────────────
   [ Amazon S3 ] ──► Hospedagem de Site Estático (Portfólio)
+'''text
 
   📋 Etapas de implementação (Deploy)
 Faça o clone deste repositório para a sua máquina local.
