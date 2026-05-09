@@ -54,7 +54,7 @@ Provisionar de forma 100% automatizada uma infraestrutura em nuvem segura, escal
   [ Amazon S3 ] ──► Hospedagem de Site Estático (Portfólio)
 ```
 
-  📋 Etapas de implementação (Deploy)
+📋 Etapas de implementação (Deploy)
 Faça o clone deste repositório para a sua máquina local.
 
 Acesse o console da AWS > CloudFormation > Create Stack.
@@ -65,9 +65,9 @@ Preencha os parâmetros dinâmicos solicitados pelo código (Nome do KeyPair e N
 
 Após o status atingir CREATE_COMPLETE, faça o upload do site estático (index.html e perfil.jpg) para o bucket S3 recém-criado via AWS CLI:
 
+Bash
 aws s3 cp index.html s3://portfolio-joao-gabriel/
 aws s3 cp perfil.jpg s3://portfolio-joao-gabriel/
-
 💡 Diferenciais Técnicos Aplicados
 Ao invés de apenas criar os recursos, apliquei práticas avançadas de engenharia e governança de nuvem:
 
