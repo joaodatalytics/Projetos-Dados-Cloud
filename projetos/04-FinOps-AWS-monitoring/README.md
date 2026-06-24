@@ -55,7 +55,7 @@ Implementar uma pipeline completa de FinOps na AWS, coletando dados de custo aut
 │  │       ├──→ Cost Explorer API                            │     │
 │  │       │    (custo por serviço + tag Project)            │     │
 │  │       │                                                 │     │
-│  │       └──→ S3: seu-bucket-finops/                       │     │
+│  │       └──→ S3: bucket-finops-joaogabriel/               │     │
 │  │                costs/YYYY/MM/YYYY-MM-DD.json            │     │
 │  └─────────────────────────────────────────────────────────┘     │
 │                                                                  │
@@ -106,7 +106,7 @@ Implementar uma pipeline completa de FinOps na AWS, coletando dados de custo aut
 ```bash
 Project     = FinOpsLab
 Environment = Dev
-Owner       = SeuNome
+Owner       = JoaoGabriel
 CostCenter  = Laboratorio
 ```
 
@@ -126,7 +126,7 @@ import json
 ce = boto3.client('ce', region_name='us-east-1')
 s3 = boto3.client('s3')
 
-BUCKET = 'seu-bucket-finops-XXXX'
+BUCKET = 'bucket-finops-joaogabriel'
 
 def lambda_handler(event, context):
     today = datetime.date.today()
@@ -211,7 +211,7 @@ CREATE EXTERNAL TABLE finops_db.cost_data (
   data         string
 )
 ROW FORMAT SERDE 'org.openx.data.jsonserde.JsonSerDe'
-LOCATION 's3://seu-bucket-finops-XXXX/costs/'
+LOCATION 's3://bucket-finops-joaogabriel/costs/'
 TBLPROPERTIES ('has_encrypted_data'='false');
 
 -- Ver registros coletados
@@ -241,7 +241,27 @@ ORDER BY collected_at DESC;
 
 ---
 
+## 📸 Evidências
 
+**Tags EC2:** <img width="100%" alt="ec2-instance-tags" src="./evidencias/Imagem%201.png" />
+
+**Alarmes do CloudWatch:** <img width="100%" alt="cloudwatch-alarms" src="./evidencias/Imagem%202.png" />
+
+**Query Successful no Athena:** <img width="100%" alt="query-sucessful" src="./evidencias/Imagem%203.png" />
+
+**Lambda Code:** <img width="100%" alt="lambda-code" src="./evidencias/Imagem%204.png" />
+
+**Test Lambda Code:** <img width="100%" alt="test-succeded-lambda" src="./evidencias/Imagem%205.png" />
+
+**Função Lambda instâncias EC2:** <img width="100%" alt="lambda-function-ec2instances" src="./evidencias/Imagem%206.png" />
+
+**Alerta Lambda para instâncias sem tag:** <img width="100%" alt="alerta-lambda-instancia-semtag" src="./evidencias/Imagem%207.png" />
+
+**Lambda desliga instância sem tag:** <img width="100%" alt="lambda-desligou-instancia-semtag" src="./evidencias/Imagem%208.png" />
+
+[📄 Clique aqui para visualizar o Roadmap do Projeto](./finops_aws_roadmap.pdf)
+
+---
 
 ## 💡 Aprendizados
 
@@ -266,13 +286,13 @@ ORDER BY collected_at DESC;
 
 ---
 
-[📄 Clique aqui para visualizar o Roadmap do Projeto](./finops_aws_roadmap.pdf)
-
 <div align="center">
 
 **João Gabriel** · Data Analyst & Cloud Analytics · Recife, Brazil
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=flat&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/joaognscmnt-dados/)
 [![Email](https://img.shields.io/badge/Email-D14836?style=flat&logo=gmail&logoColor=white)](mailto:joooogabrielnscmnt4@gmail.com)
+
+</div>
 
 </div>
