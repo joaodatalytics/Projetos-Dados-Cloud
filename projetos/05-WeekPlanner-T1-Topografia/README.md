@@ -11,7 +11,7 @@
 
 ## 📌 Sobre o Projeto
 
-![Interface WeekPlanner T1 Topografia](./image_8c1241.png)
+![Interface WeekPlanner T1 Topografia](./weekplanner.png)
 > *Interface da aplicação rodando em produção na Vercel, utilizada para gestão de equipes de campo.*
 
 Este projeto prático consistiu no desenvolvimento de uma aplicação web completa (Full-Stack) voltada para a gestão de agendamentos e acompanhamento de pendências operacionais de uma equipe técnica de topografia.
