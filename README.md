@@ -18,6 +18,7 @@ salvo indicação específica em contrário.
 | 01 | [Arquitetura de Rede Segura e Troubleshooting (Amazon VPC)](./01-projeto-arquitetura-vpc/README.md) | VPC · Subnets Privadas · NAT Gateway · Bastion Host | ✅ Concluído | Escola da Nuvem |
 | 02 | [Infrastructure as Code (IaC) com AWS CloudFormation](./02-projeto-iac-cloudformation/README.md) | CloudFormation · EC2 · RDS · S3 · VPC | ✅ Concluído | 🚀 Iniciativa própria |
 | 03 | [Data Pipeline & Cloud Infrastructure: Helpdesk Clínica Florence](./03-projeto-helpdesk-florence/README.md) | Python · Flask · EC2 · RDS · MySQL · S3 | ✅ Concluído | 🚀 Iniciativa própria |
+| 04 | [FinOps na AWS: Monitoramento e Governança de Custos](./04-FinOps-AWS-monitoring/README.md) | Lambda · Athena · Cost Explorer · EventBridge · S3 | ✅ Concluído | 🚀 Iniciativa própria |
 
 > Novos projetos e dashboards serão adicionados conforme o avanço nos estudos.
 
@@ -25,6 +26,7 @@ salvo indicação específica em contrário.
 
 ## 🛠️ Tecnologias exploradas
 
+**☁️ Cloud & Infraestrutura (AWS):**
 ![AWS](https://img.shields.io/badge/AWS-Cloud-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![VPC](https://img.shields.io/badge/AWS-VPC-232F3E?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![CloudFormation](https://img.shields.io/badge/AWS-CloudFormation-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
@@ -33,6 +35,13 @@ salvo indicação específica em contrário.
 ![RDS](https://img.shields.io/badge/AWS-RDS-527FFF?style=for-the-badge&logo=amazonrds&logoColor=white)
 ![CloudWatch](https://img.shields.io/badge/AWS-CloudWatch-FF4F8B?style=for-the-badge&logo=amazonaws&logoColor=white)
 ![IAM](https://img.shields.io/badge/AWS-IAM-DD344C?style=for-the-badge&logo=amazonaws&logoColor=white)
+![Lambda](https://img.shields.io/badge/AWS-Lambda-FF9900?style=for-the-badge&logo=awslambda&logoColor=white)
+![Athena](https://img.shields.io/badge/AWS-Athena-EF9F27?style=for-the-badge&logo=amazonathena&logoColor=white)
+![EventBridge](https://img.shields.io/badge/AWS-EventBridge-FF9900?style=for-the-badge&logo=amazoneventbridge&logoColor=white)
+![Cost Explorer](https://img.shields.io/badge/AWS-Cost_Explorer-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+![SNS](https://img.shields.io/badge/AWS-SNS-FF9900?style=for-the-badge&logo=amazonaws&logoColor=white)
+
+**📊 Dados & Programação:**
 ![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
 ![Flask](https://img.shields.io/badge/Flask-000000?style=for-the-badge&logo=flask&logoColor=white)
 ![SQL](https://img.shields.io/badge/SQL-MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white)
@@ -50,7 +59,7 @@ salvo indicação específica em contrário.
 
 </div>
 
-*Atualizado em Maio 2026*
+*Atualizado em Junho 2026*
 
 ## Licença
 
