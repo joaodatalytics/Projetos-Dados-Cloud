@@ -15,10 +15,11 @@ salvo indicação específica em contrário.
 
 | # | Projeto | Serviços | Status | Origem |
 |---|---|---|---|---|
-| 01 | [Arquitetura de Rede Segura e Troubleshooting (Amazon VPC)](./01-projeto-arquitetura-vpc/README.md) | VPC · Subnets Privadas · NAT Gateway · Bastion Host | ✅ Concluído | Escola da Nuvem |
-| 02 | [Infrastructure as Code (IaC) com AWS CloudFormation](./02-projeto-iac-cloudformation/README.md) | CloudFormation · EC2 · RDS · S3 · VPC | ✅ Concluído | 🚀 Iniciativa própria |
-| 03 | [Data Pipeline & Cloud Infrastructure: Helpdesk Clínica Florence](./03-projeto-helpdesk-florence/README.md) | Python · Flask · EC2 · RDS · MySQL · S3 | ✅ Concluído | 🚀 Iniciativa própria |
-| 04 | [FinOps na AWS: Monitoramento e Governança de Custos](./04-FinOps-AWS-monitoring/README.md) | Lambda · Athena · Cost Explorer · EventBridge · S3 | ✅ Concluído | 🚀 Iniciativa própria |
+| 01 | [Arquitetura de Rede Segura e Troubleshooting (Amazon VPC)](#) | VPC · Subnets Privadas · NAT Gateway · Bastion Host | ✅ Concluído | Escola da Nuvem |
+| 02 | [Infrastructure as Code (IaC) com AWS CloudFormation](#) | CloudFormation · EC2 · RDS · S3 · VPC | ✅ Concluído | 🚀 Iniciativa própria |
+| 03 | [Data Pipeline & Cloud Infrastructure: Helpdesk Clínica Florence](#) | Python · Flask · EC2 · RDS · MySQL · S3 | ✅ Concluído | 🚀 Iniciativa própria |
+| 04 | [FinOps na AWS: Monitoramento e Governança de Custos](#) | Lambda · Athena · Cost Explorer · EventBridge · S3 | ✅ Concluído | 🚀 Iniciativa própria |
+| **05** | **[Cloud Data Architecture & Serverless Web App: WeekPlanner T1 Topografia](#)** | **Python · FastAPI · PostgreSQL · Vercel · Render** | **✅ Concluído** | **🏢 Projeto Profissional** |
 
 > Novos projetos e dashboards serão adicionados conforme o avanço nos estudos.
 
