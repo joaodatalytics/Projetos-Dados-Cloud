@@ -266,6 +266,8 @@ ORDER BY collected_at DESC;
 
 ---
 
+[📄 Clique aqui para visualizar o Roadmap do Projeto](./nome-do-seu-arquivo.pdf)
+
 <div align="center">
 
 **João Gabriel** · Data Analyst & Cloud Analytics · Recife, Brazil
